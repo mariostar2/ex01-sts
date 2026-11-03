@@ -1,0 +1,9 @@
+package com.example.demo;
+
+public class Message {
+	
+	public String name;
+	public String password;
+	public String[] regs;
+
+}

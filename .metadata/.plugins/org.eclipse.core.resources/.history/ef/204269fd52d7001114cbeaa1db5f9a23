@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>인덱스 페이지</h1>
+<hr>
+<a href="ab">test12로</a>
+<a href="ab?msg=hello">b파일로</a>
+<a href="af/ppp/aaa">c파일로</a>
+<hr>
+<form action = "ae" method="post">
+	<input type="text"  name="name">
+	<input type="text"  name="message">
+	<input type="checkbox" name= "regs" value="run">달리기
+	<input type="checkbox" name= "regs" value="leng">걷기
+	<input type="checkbox" name= "regs" value="song">음악하기
+	<input type="submit" value="전송">
+</form>
+</body>
+</html>

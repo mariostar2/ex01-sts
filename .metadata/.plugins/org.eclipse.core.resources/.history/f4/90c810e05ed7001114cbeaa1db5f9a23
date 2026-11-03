@@ -1,0 +1,48 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.dto.MyUser;
+import com.example.demo.service.MyUserService;
+
+@Controller
+public class MyController {
+	
+	@Autowired
+	private MyUserService myUserService;
+	
+	
+	@RequestMapping("/")
+	public String root() {
+		return "index";
+	}
+	
+	@GetMapping("/regForm")
+	public String registForm() {
+		System.out.println("[컨트롤러]  registForm 실행.....");
+		return "regForm";
+	}
+	
+	@PostMapping("/regist")
+	public String regist(MyUser dto) {
+		//바인딩
+		System.out.println("regist 실행..." + dto);
+		myUserService.regist(dto);
+		return "redirect:success";
+	}
+	
+	@RequestMapping("/success")
+	public String success() {
+		System.out.println("[컨트롤러] success 실행");
+		return "success";
+	}
+	@RequestMapping("/fail")
+	public String fail() {
+		System.out.println("[컨트롤러] fail 실행");
+		return "fail";
+	}
+}

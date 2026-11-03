@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Test12c 클래스룸</h1>
+<hr>
+<ul>
+	<li>아이디: ${message.name }</li>
+	<li>비밀번호:${message.password }</li>
+	<li>${message.regs[0]}</li>
+	<c:forEach var="x" items="${message.regs }">
+	<li>취미:${x}</li>
+	</c:forEach>
+</ul>
+</body>
+</html>

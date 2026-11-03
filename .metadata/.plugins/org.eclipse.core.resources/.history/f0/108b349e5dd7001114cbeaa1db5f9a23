@@ -1,0 +1,13 @@
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.MyUser;
+
+@Service
+public class MyUserService {
+	public void regist(MyUser dto) {
+		System.out.println("[서비스:] regist 실행...." +dto );
+	}
+	
+}
