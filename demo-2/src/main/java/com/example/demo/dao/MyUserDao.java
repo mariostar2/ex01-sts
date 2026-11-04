@@ -16,6 +16,6 @@ public class MyUserDao {
 		String sql = "INSERT INTO myuser(userid,username)" + "VALUES (?,?)";
 
 		return jt.update(sql, dto.getUserid(), dto.getUsername());
-
+		
 	}
 }
