@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.dao.ISimpleBbsDao">
+	<!-- <select id="listDao"
+		resultType="com.example.demo.dto.SimpleBbsDto">
+		SELECT * FROM simple_bbs ORDER BY id DESC
+	</select> -->
+
+	<select id="viewDao"
+		resultType="com.example.demo.dto.SimpleBbsDto">
+		SELECT * FROM simple_bbs WHERE id =${_id}
+	</select>
+
+	<insert id="writeDao_backup">
+		INSERT INTO simple_bbs(writer,title,content)
+		VALUES(#{param1},#{param2},#{param3});
+	</insert>
+
+	<insert id="writeDao">
+		INSERT INTO simple_bbs(writer,title,content)
+		VALUES(#{dto.writer},#{dto.title},#{dto.content});
+	</insert>
+
+	<update id="updateDao">
+		UPDATE simple_bbs SET title = #{dto.title},content =
+		#{dto.content}
+		WHERE id = #{dto.id}
+	</update>
+	<delete id="deleteDao">
+		DELETE FROM simple_bbs WHERE id = #{_id}
+	</delete>
+
+
+	<select id="searchType"
+		resultType="com.example.demo.dto.SimpleBbsDto">
+		SELECT * FROM simple_bbs
+		<where>
+			<if test="type == 'title'">
+				title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'writer'">
+				writer LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'content'">
+				content LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+	</select>
+	
+	<select id ="count">
+		SELECT COUNT(*) FROM Simple_bbs
+	</select>
+	
+	<update id ="updateUser">
+		UPDATE users
+		<set>
+			<if test ="name != null">name = #{name},</if>  
+			<if test ="null != null">age = #{age},</if>
+		</set>
+		
+	</update>
+
+
+</mapper>

@@ -1,9 +1,0 @@
-package com.example.demo;
-
-public class Printer {
-
-	public void print(String s) {
-		System.out.println("내용:" + s);
-	}
-
-}
